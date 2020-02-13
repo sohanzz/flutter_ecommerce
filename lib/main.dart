@@ -3,6 +3,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 
 //my imports
 import 'package:flutter_ecommerce/components/horizontal_listview.dart';
+import 'package:flutter_ecommerce/components/products.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -166,7 +167,7 @@ class _HomePageState extends State<HomePage> {
           //gridView
           Container(
             height: 320,
-            //child: Products(),
+            child: Products(),
           )
 
         ],
