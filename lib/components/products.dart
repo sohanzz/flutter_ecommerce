@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_ecommerce/pages/product_details.dart';
+
 class Products extends StatefulWidget {
   @override
   _ProductsState createState() => _ProductsState();
@@ -13,65 +15,32 @@ class _ProductsState extends State<Products> {
       "old_price": "120",
       "price": "85"
     },
-    {
-      "name": "Blazer",
-      "picture": "images/products/blazer2.jpeg",
-      "old_price": "200",
-      "price": "150",
-    },
+
     {
       "name": "Dress",
       "picture": "images/products/dress1.jpeg",
       "old_price": "90",
       "price": "75",
     },
-    {
-      "name": "Dress",
-      "picture": "images/products/dress2.jpeg",
-      "old_price": "120",
-      "price": "85",
-    },
+
     {
       "name": "Shoe",
       "picture": "images/products/hills1.jpeg",
-      "old_price": "120",
-      "price": "85",
+      "old_price": "110",
+      "price": "80",
     },
-    {
-      "name": "Shoe",
-      "picture": "images/products/hills2.jpeg",
-      "old_price": "120",
-      "price": "85",
-    },
+
     {
       "name": "Pant",
       "picture": "images/products/pants1.jpeg",
-      "old_price": "120",
-      "price": "85",
-    },
-    {
-      "name": "Pant",
-      "picture": "images/products/pants2.jpeg",
-      "old_price": "450",
-      "price": "500",
-    },
-    {
-      "name": "Shoe",
-      "picture": "images/products/Shoe1.jpeg",
-      "old_price": "120",
-      "price": "85",
+      "old_price": "445",
+      "price": "225",
     },
     {
       "name": "Skirt",
       "picture": "images/products/sk1.jpeg",
-      "old_price": "120",
-      "price": "85",
-    },
-    {
-      "name": "Skirt",
-      "picture": "images/products/skt2.jpeg",
-      "old_price": "120",
-      "price": "85",
+      "old_price": "567",
+      "price": "567",
     },
   ];
 
@@ -112,7 +81,14 @@ class Single_prod extends StatelessWidget {
         tag: product_name,
         child: Material(
           child: InkWell(
-            //onTap: () => Navigator.of(context).push(route),
+            onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              //Here we re passing the values of the product to the product details page
+                builder: (context) => new ProductDetails(
+                  product_detail_name: product_name,
+                  product_detail_new_price: prod_price,
+                  product_detail_old_price: prod_old_price,
+                  product_detail_picture: prod_picture,
+                ))),
             child: GridTile(
               footer: Container(
                 color: Colors.white70,
@@ -131,7 +107,9 @@ class Single_prod extends StatelessWidget {
                   subtitle: Text(
                     "\$$prod_old_price",
                     style: TextStyle(
-                        color: Colors.black54, fontWeight: FontWeight.w800, decoration: TextDecoration.lineThrough),
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w800,
+                        decoration: TextDecoration.lineThrough),
                   ),
                 ),
               ),
